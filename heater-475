@@ -1,0 +1,16 @@
+class Solution {
+    public int findRadius(int[] h, int[] he) {
+        Arrays.sort(h);
+        Arrays.sort(he);
+        int i=0,j=0,ra=0;
+        while(i<h.length){
+            while(j<he.length-1&&Math.abs(he[j+1]-h[i])<=Math.abs(he[j]-h[i])){
+                j++;
+            }
+            int dist=Math.abs(he[j]-h[i]);
+            ra=Math.max(ra,dist);
+            i++;
+        }
+        return ra;
+    }
+}
