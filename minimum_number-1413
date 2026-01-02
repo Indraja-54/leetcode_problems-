@@ -1,0 +1,12 @@
+class Solution {
+    public int minStartValue(int[] a) {
+        int[] pf=new int[a.length];
+        pf[0]=a[0];
+        int mn=Math.min(0,pf[0]);
+        for(int i=1;i<a.length;i++){
+            pf[i]=pf[i-1]+a[i];
+            mn=Math.min(mn,pf[i]);
+        }
+        return 1-mn;   
+    }
+}
